@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Kent Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -134,8 +134,13 @@ def practice_problem4a(sequence):
     Type hints:
       :type sequence: list | tuple | string
     """
+    s = []
+    for k in range(len(sequence) - 1):
+        if sequence[k] == sequence[k + 1]:
+            s.append(k)
+    return s
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -197,8 +202,13 @@ def practice_problem4b(sequence):
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
+    max = sequence[0]
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > max:
+            max = sequence[k]
+    return max
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -295,6 +305,12 @@ def practice_problem4c(points):
       :type points: tuple of rg.Point
       :rtype: rg.Point | string
     """
+    for k in range(len(points)):
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            x = points[k].y
+            y = points[k].x
+            return rg.Point(x, y)
+    return 'Not found'
     ###########################################################################
     # TODO: 4. Implement and test this function.
     #     The testing code is already written for you (above).
