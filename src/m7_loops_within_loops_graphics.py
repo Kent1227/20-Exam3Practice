@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Kent Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -30,6 +30,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -89,6 +90,37 @@ def hourglass(window, n, point, radius, color):
     where n and radius are positive and color is a string that denotes
     a color that rosegraphics understands.
     """
+    dy = (2 * radius) * math.cos(30 * math.pi / 180)
+    dx = 2 * radius
+    startx = point.x
+    starty = point.y
+    x = startx
+    y = starty
+    for k in range(n):
+        for _ in range(k + 1):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            circle.fill_color = color
+            line.thickness = 1
+            circle.attach_to(window)
+            line.attach_to(window)
+            x += dx
+        x = startx - ((k + 1) * radius)
+        y -= dy
+    x = startx
+    y = starty
+    for k in range(n):
+        for _ in range(k + 1):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            circle.fill_color = color
+            line.thickness = 1
+            circle.attach_to(window)
+            line.attach_to(window)
+            x += dx
+        x = startx - ((k + 1) * radius)
+        y += dy
+    window.render()
     # -------------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
     #       We provided some tests for you (above).
