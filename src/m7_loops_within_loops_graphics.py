@@ -212,7 +212,7 @@ def many_hourglasses(window, square, m, colors):
         rect = rg.Rectangle(corner1, corner2)
 
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################
